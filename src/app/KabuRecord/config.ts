@@ -11,9 +11,9 @@ export const kabuTrends: {
 } = {
   notDefined: '資料不足',
   decrement: '遞減型',
-  wave: '波型(最大價格1.1~1.5倍)',
-  third: '三期型(最大價格2~6倍)',
-  forth: '四期型(最大價格1.4~2倍)',
+  wave: '波型(最大價格1.1 ~ 1.5倍)',
+  third: '三期型(最大價格約2 ~ 6倍)',
+  forth: '四期型(最大價格約1.4 ~ 2倍)',
 };
 
 export const positionUndefinedText_zhTw = '價格尚不足/可能為波型，無法預測最大值時間';

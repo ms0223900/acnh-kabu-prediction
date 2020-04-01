@@ -2,6 +2,9 @@ import React from 'react';
 import { OtherDayKabuFormContainerProps } from './containers/types';
 import OtherDayKabuFormContainer from './containers/OtherDayKabuFormContainer';
 import HandleLocalStorage from './functions/HandleLocalStorage';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { Box } from '@material-ui/core';
 
 export const initDayPrices = {
   'morning': 0,
@@ -20,8 +23,16 @@ export const defaultInitOtherDayPrices: OtherDayKabuFormContainerProps['initOthe
 
 const KabuRecord = () => {
   return (
-    <OtherDayKabuFormContainer
-      initOtherDayPrices={HandleLocalStorage.getData()} />
+    <>
+      <Header />
+      <Box style={{
+        minHeight: '100vh'
+      }}>
+        <OtherDayKabuFormContainer
+          initOtherDayPrices={HandleLocalStorage.getData()} />
+      </Box>
+      <Footer />
+    </>
   );
 };
 

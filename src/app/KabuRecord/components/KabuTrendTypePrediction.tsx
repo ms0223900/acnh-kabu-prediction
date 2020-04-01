@@ -12,7 +12,7 @@ const KabuTrendTypePrediction = (props: KabuTrendTypePredictionProps) => {
   
   return (
     <Box>
-      <Box display={'flex'} alignItems={'center'}>
+      <Box display={'flex'} alignItems={'center'} paddingTop={1} paddingBottom={1}>
         <Typography>
           {'目前可能趨勢: '}
         </Typography>
@@ -21,11 +21,14 @@ const KabuTrendTypePrediction = (props: KabuTrendTypePredictionProps) => {
         </Typography>
       </Box>
       <Divider />
-      <Typography>
-        {`價格最大值時間: ${
-          getHighestPositionText(props.highestPricePosition)
-        }`}
-      </Typography>
+      <Box display={'flex'} alignItems={'center'} paddingTop={1} paddingBottom={1}>
+        <Typography>
+          {'預測價格最大值時間: '}
+        </Typography>
+        <Typography variant={'h5'}>
+          {`${getHighestPositionText(props.highestPricePosition)}`}
+        </Typography>
+      </Box>
     </Box>
   );
 };

@@ -41,5 +41,6 @@ export interface InputItemContainerProps extends BaseTextFieldProps {
   day: OtherDayType
   dayTime: DayTimeType
   value: string
+  variant?: 'standard' | 'filled' | 'outlined'
   onChange?: InputOnChangeFn
 }

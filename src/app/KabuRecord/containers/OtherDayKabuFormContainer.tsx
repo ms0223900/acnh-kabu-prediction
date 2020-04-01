@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Box, Divider, Typography } from '@material-ui/core';
+import { Box, Divider, Typography, Container } from '@material-ui/core';
 import OtherDayKabuForm from '../components/OtherDayKabuForm';
 import { DayAndTime, SingleWeekKabuRecord, OtherDayType } from '../types';
 import InputItemContainer from './InputItemContainer';
@@ -39,25 +39,30 @@ const OtherDayKabuFormContainer = (props: OtherDayKabuFormContainerProps) => {
   const kabuTrendTypesAndPricePosition = HandleKabuTrends.getPresiceTrendType(prices);
 
   return (
-    <>
-      <Typography>{'Sunday price'}</Typography>
-      <InputItemContainer
-        id={'sunday-morning'}
-        day={'sun'}
-        dayTime={'morning'}
-        onChange={handleChange}
-        value={String(dayPrices.sun.morning)} />
-      <Divider />
+    <Container>
+      
+      <Box>
+        <Typography variant={'h6'}>
+          {'週日原買價'}
+        </Typography>
+        <InputItemContainer
+          id={'sunday-morning'}
+          day={'sun'}
+          dayTime={'morning'}
+          variant={'outlined'}
+          onChange={handleChange}
+          value={String(dayPrices.sun.morning)} />
+      </Box>
       <OtherDayKabuForm
         otherDayList={otherDayList}
         onChange={handleChange} />
-      <Divider />
       <Typography variant={'h5'}>
         {`Kabu值(%): ${Kabu}`}
       </Typography>
+      <Divider />
       <KabuTrendTypePrediction
         {...kabuTrendTypesAndPricePosition} />
-    </>
+    </Container>
   );
 };
 
