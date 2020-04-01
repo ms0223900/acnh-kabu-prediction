@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/ms0223900/acnh-kabu-prediction/static/css/main.dfca195d.chunk.css",
+    "main.js": "/ms0223900/acnh-kabu-prediction/static/js/main.48133152.chunk.js",
+    "main.js.map": "/ms0223900/acnh-kabu-prediction/static/js/main.48133152.chunk.js.map",
+    "runtime-main.js": "/ms0223900/acnh-kabu-prediction/static/js/runtime-main.fb762c41.js",
+    "runtime-main.js.map": "/ms0223900/acnh-kabu-prediction/static/js/runtime-main.fb762c41.js.map",
+    "static/js/2.49e9152e.chunk.js": "/ms0223900/acnh-kabu-prediction/static/js/2.49e9152e.chunk.js",
+    "static/js/2.49e9152e.chunk.js.map": "/ms0223900/acnh-kabu-prediction/static/js/2.49e9152e.chunk.js.map",
+    "index.html": "/ms0223900/acnh-kabu-prediction/index.html",
+    "precache-manifest.a69036d5ef2cf82bbd6d2b3db59fc4ef.js": "/ms0223900/acnh-kabu-prediction/precache-manifest.a69036d5ef2cf82bbd6d2b3db59fc4ef.js",
+    "service-worker.js": "/ms0223900/acnh-kabu-prediction/service-worker.js",
+    "static/css/main.dfca195d.chunk.css.map": "/ms0223900/acnh-kabu-prediction/static/css/main.dfca195d.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fb762c41.js",
+    "static/js/2.49e9152e.chunk.js",
+    "static/css/main.dfca195d.chunk.css",
+    "static/js/main.48133152.chunk.js"
+  ]
+}
