@@ -1,0 +1,20 @@
+{
+  "extends": "react-app",
+  "rules": {
+    "indent": [
+      "warn",
+      2
+    ],
+    "semi": [
+      "warn",
+      "always"
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
+  }
+}

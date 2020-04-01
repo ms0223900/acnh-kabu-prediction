@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  storybook:
+    image: react-game-ts-storybook:1.0.0
+    build: 
+      context: .
+      dockerfile: ./docker/storybook/Dockerfile
+    ports:
+      - "9009:9009"
+  # ibus:
+  #   image: react-game-ts:1.0.0
+  #   build: 
+  #     context: .
+  #     dockerfile: ./docker/react-game-ts/Dockerfile
+  #   ports:
+  #    - 7777:3000
+    # volumes:
+    #  - .:/code
