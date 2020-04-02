@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Typography, makeStyles } from '@material-ui/core';
+import { Box, Typography, makeStyles, Button } from '@material-ui/core';
+import { reportDocLink } from '../config';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,9 +34,20 @@ const Header = () => {
           />
         </Box>
         <Typography>
-          {'動物森友會 Animal Crossing New Horizons 大頭菜價格趨勢預測'}
+          {'動物森友會 大頭菜價格趨勢預測'}
         </Typography>
+        {/* <Typography>
+          {'Animal Crossing New Horizons'}
+        </Typography> */}
       </Box>
+      <Button
+        // color={'secondary'}
+        variant={'outlined'}
+        target={'_blank'}
+        href={reportDocLink}
+      >
+        {'問題回報'}
+      </Button>
     </Box>
   );
 };

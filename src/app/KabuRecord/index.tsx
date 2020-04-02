@@ -5,6 +5,8 @@ import HandleLocalStorage from './functions/HandleLocalStorage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { Box } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/styles';
+import anclTheme from './theme/theme';
 
 export const initDayPrices = {
   'morning': 0,
@@ -23,7 +25,7 @@ export const defaultInitOtherDayPrices: OtherDayKabuFormContainerProps['initOthe
 
 const KabuRecord = () => {
   return (
-    <>
+    <ThemeProvider theme={anclTheme}>
       <Header />
       <Box style={{
         minHeight: '100vh'
@@ -32,7 +34,7 @@ const KabuRecord = () => {
           initOtherDayPrices={HandleLocalStorage.getData()} />
       </Box>
       <Footer />
-    </>
+    </ThemeProvider>
   );
 };
 

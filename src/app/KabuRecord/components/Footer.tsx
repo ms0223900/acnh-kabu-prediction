@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography, Link, Divider } from '@material-ui/core';
+import referenceLinks from '../static/referenceLinks.json';
 
 const version = process.env.REACT_APP_VERSION;
 
@@ -15,25 +16,14 @@ export const LinkItemInFooter = ({
       display={'block'}
       href={href}
       target={'_blank'}
+      color={'textSecondary'}
     >
       {title}
     </Link>
   );
 };
 
-const links = [
-  {
-    href: 'https://forum.gamer.com.tw/Co.php?bsn=7287&sn=19239',
-    title: '巴哈姆特 【攻略】大頭菜教學 讓你輕鬆致富'
-  },
-  {
-    href: 'https://forum.gamer.com.tw/Co.php?bsn=60539&sn=46540',
-    title: '巴哈姆特 【攻略】動物之森，炒股(蕪菁)攻略-日wiki'
-  },{
-    href: 'https://w.atwiki.jp/doubutsunomori3ds/pages/99.html',
-    title: '日文wiki'
-  },
-];
+const links = referenceLinks;
 
 const Footer = () => {
   return (
@@ -48,6 +38,9 @@ const Footer = () => {
         {'投資有賺有賠，資料僅供預測，如有任何預測失準，一切以遊戲為主'}
       </Typography>
       <Divider />
+      <Typography>
+        {'參考來源'}
+      </Typography>
       {links.map((link, i) => (
         <LinkItemInFooter
           key={i}

@@ -2,6 +2,7 @@ import { GridRatio } from "common-types";
 import { KabuTrendType, OtherDayType, DayTimeType } from "./types";
 import { noReboundPosition } from "./functions/HandleKabuTrend";
 
+export const reportDocLink = 'https://docs.google.com/document/d/1LooeZ1qIbQnKRFvIcF6-a1RbbtA9UPt7gIBLnB2Gnp4/edit?usp=sharing';
 export const localStorageKey = 'KabuForm';
 
 export const otherDayKabuItemWidthRatios = [2, 5, 5] as GridRatio[];

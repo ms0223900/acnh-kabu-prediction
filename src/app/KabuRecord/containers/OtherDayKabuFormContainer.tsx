@@ -56,10 +56,10 @@ const OtherDayKabuFormContainer = (props: OtherDayKabuFormContainerProps) => {
       <OtherDayKabuForm
         otherDayList={otherDayList}
         onChange={handleChange} />
-      <Typography variant={'h5'}>
+      {/* <Typography variant={'h5'}>
         {`Kabu值(%): ${Kabu}`}
       </Typography>
-      <Divider />
+      <Divider /> */}
       <KabuTrendTypePrediction
         {...kabuTrendTypesAndPricePosition} />
     </Container>
