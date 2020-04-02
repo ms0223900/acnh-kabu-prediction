@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Box, Divider, Typography, Container } from '@material-ui/core';
 import OtherDayKabuForm from '../components/OtherDayKabuForm';
-import { DayAndTime, SingleWeekKabuRecord, OtherDayType } from '../types';
+import { DayAndTime, SingleWeekKabuRecord, OtherDayType, SingleOtherDayPrices } from '../types';
 import InputItemContainer from './InputItemContainer';
 import handleCalKabu from '../functions/handleCalKabu';
 import { OtherDayKabuFormContainerProps } from './types';
@@ -10,6 +10,8 @@ import KabuTrendTypePrediction from '../components/KabuTrendTypePrediction';
 import HandleKabuTrends from '../functions/HandleKabuTrend';
 import ResetButtonContainer from './ResetButtonContainer';
 import { defaultInitOtherDayPrices } from '..';
+
+export const otherDaysArr: OtherDayType[] = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 
 const OtherDayKabuFormContainer = (props: OtherDayKabuFormContainerProps) => {
   let Kabu: number | string = 0;
@@ -34,7 +36,7 @@ const OtherDayKabuFormContainer = (props: OtherDayKabuFormContainerProps) => {
   }, [dayPrices]);
 
   //excludes sunday
-  const days = Object.keys(dayPrices).slice(1) as OtherDayType[];
+  const days = otherDaysArr;
   const otherDayList = days.map(day => ({
     day,
     dayTimePrices: dayPrices[day]
