@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/acnh-kabu-prediction/static/css/main.491bee12.chunk.css",
-    "main.js": "/acnh-kabu-prediction/static/js/main.ed9c3c86.chunk.js",
-    "main.js.map": "/acnh-kabu-prediction/static/js/main.ed9c3c86.chunk.js.map",
+    "main.js": "/acnh-kabu-prediction/static/js/main.2f91e509.chunk.js",
+    "main.js.map": "/acnh-kabu-prediction/static/js/main.2f91e509.chunk.js.map",
     "runtime-main.js": "/acnh-kabu-prediction/static/js/runtime-main.e463bda6.js",
     "runtime-main.js.map": "/acnh-kabu-prediction/static/js/runtime-main.e463bda6.js.map",
-    "static/js/2.f3c81add.chunk.js": "/acnh-kabu-prediction/static/js/2.f3c81add.chunk.js",
-    "static/js/2.f3c81add.chunk.js.map": "/acnh-kabu-prediction/static/js/2.f3c81add.chunk.js.map",
+    "static/js/2.617f6e3f.chunk.js": "/acnh-kabu-prediction/static/js/2.617f6e3f.chunk.js",
+    "static/js/2.617f6e3f.chunk.js.map": "/acnh-kabu-prediction/static/js/2.617f6e3f.chunk.js.map",
     "index.html": "/acnh-kabu-prediction/index.html",
-    "precache-manifest.59eb674b7826f1b184bd8b207e412cf3.js": "/acnh-kabu-prediction/precache-manifest.59eb674b7826f1b184bd8b207e412cf3.js",
+    "precache-manifest.a05a541f8fcaef10531c99765019310c.js": "/acnh-kabu-prediction/precache-manifest.a05a541f8fcaef10531c99765019310c.js",
     "service-worker.js": "/acnh-kabu-prediction/service-worker.js",
     "static/css/main.491bee12.chunk.css.map": "/acnh-kabu-prediction/static/css/main.491bee12.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.e463bda6.js",
-    "static/js/2.f3c81add.chunk.js",
+    "static/js/2.617f6e3f.chunk.js",
     "static/css/main.491bee12.chunk.css",
-    "static/js/main.ed9c3c86.chunk.js"
+    "static/js/main.2f91e509.chunk.js"
   ]
 }
