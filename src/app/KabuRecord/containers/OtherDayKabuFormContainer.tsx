@@ -8,6 +8,8 @@ import { OtherDayKabuFormContainerProps } from './types';
 import { localStorageKey } from '../config';
 import KabuTrendTypePrediction from '../components/KabuTrendTypePrediction';
 import HandleKabuTrends from '../functions/HandleKabuTrend';
+import ResetButtonContainer from './ResetButtonContainer';
+import { defaultInitOtherDayPrices } from '..';
 
 const OtherDayKabuFormContainer = (props: OtherDayKabuFormContainerProps) => {
   let Kabu: number | string = 0;
@@ -21,6 +23,10 @@ const OtherDayKabuFormContainer = (props: OtherDayKabuFormContainerProps) => {
         [dayAndTime.dayTime]: Number(value),
       }
     }));
+  }, []);
+
+  const handleResetPrices = useCallback(() => {
+    setDayPrices(defaultInitOtherDayPrices);
   }, []);
 
   useEffect(() => {
@@ -40,7 +46,6 @@ const OtherDayKabuFormContainer = (props: OtherDayKabuFormContainerProps) => {
 
   return (
     <Container>
-      
       <Box>
         <Typography variant={'h6'}>
           {'週日原買價'}
@@ -62,6 +67,10 @@ const OtherDayKabuFormContainer = (props: OtherDayKabuFormContainerProps) => {
       <Divider /> */}
       <KabuTrendTypePrediction
         {...kabuTrendTypesAndPricePosition} />
+      <Box paddingTop={1} textAlign={'center'}>
+        <ResetButtonContainer
+          resetPricesFn={handleResetPrices} />
+      </Box>
     </Container>
   );
 };

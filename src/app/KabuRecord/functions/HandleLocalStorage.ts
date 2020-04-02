@@ -26,6 +26,10 @@ class HandleLocalStorage {
     }
     return defaultInitOtherDayPrices;
   }
+  
+  static reset() {
+    localStorage.setItem(localStorageKey, '');
+  }
 }
 
 export default HandleLocalStorage;
