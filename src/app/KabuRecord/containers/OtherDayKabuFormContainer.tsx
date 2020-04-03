@@ -14,7 +14,6 @@ import { defaultInitOtherDayPrices } from '..';
 export const otherDaysArr: OtherDayType[] = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 
 const OtherDayKabuFormContainer = (props: OtherDayKabuFormContainerProps) => {
-  let Kabu: number | string = 0;
   const [dayPrices, setDayPrices] = useState(props.initOtherDayPrices);
 
   const handleChange = useCallback((dayAndTime: DayAndTime, value: string) => {
@@ -42,7 +41,6 @@ const OtherDayKabuFormContainer = (props: OtherDayKabuFormContainerProps) => {
     dayTimePrices: dayPrices[day]
   }));
 
-  Kabu = handleCalKabu(dayPrices.sun.morning, dayPrices.mon.morning);
   const prices = HandleKabuTrends.getThisWeekPrices(dayPrices);
   const kabuTrendTypesAndPricePosition = HandleKabuTrends.getPresiceTrendType(prices);
 
@@ -68,6 +66,7 @@ const OtherDayKabuFormContainer = (props: OtherDayKabuFormContainerProps) => {
       </Typography>
       <Divider /> */}
       <KabuTrendTypePrediction
+        prices={prices}
         {...kabuTrendTypesAndPricePosition} />
       <Box paddingTop={1} textAlign={'center'}>
         <ResetButtonContainer

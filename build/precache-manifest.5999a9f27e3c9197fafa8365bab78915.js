@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "75f63b704788a24da3736e8c238f3037",
+    "revision": "2d7f3ac8b882d9c7d3a8dc9a255c4069",
     "url": "/acnh-kabu-prediction/index.html"
   },
   {
-    "revision": "ba7addd7b4fb2ec95623",
+    "revision": "d0ff1b0123e16e5c6529",
     "url": "/acnh-kabu-prediction/static/css/main.491bee12.chunk.css"
   },
   {
-    "revision": "d149674e975c842bb6b1",
-    "url": "/acnh-kabu-prediction/static/js/2.617f6e3f.chunk.js"
+    "revision": "a28fe51ff8c13163cbb1",
+    "url": "/acnh-kabu-prediction/static/js/2.d2f46459.chunk.js"
   },
   {
-    "revision": "ba7addd7b4fb2ec95623",
-    "url": "/acnh-kabu-prediction/static/js/main.2f91e509.chunk.js"
+    "revision": "d0ff1b0123e16e5c6529",
+    "url": "/acnh-kabu-prediction/static/js/main.6ea5fdf5.chunk.js"
   },
   {
     "revision": "beb85ed070ced644ee2f",

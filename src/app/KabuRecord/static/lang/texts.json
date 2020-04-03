@@ -1,0 +1,10 @@
+{
+  "zh_TW": {
+    "sellingAdvise.askForHelp": "如果其他島民有更優(4~6倍)的價格，建議盡早賣出",
+    "sellingAdvise.wave": "大約1.3倍~1.4倍買價就可以賣出了",
+    "sellingAdvise.default": "等待價格更明確",
+    "sellingAdvise.third": "等到最高價賣出(2~6倍)",
+    "sellingAdvise.forth": "等到最高價賣出(1.4~2倍)",
+    "sellingAdvise.overdue": "最高價已過，以賠越少越好為原則賣出"
+  }
+}

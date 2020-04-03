@@ -12,7 +12,7 @@ export const kabuTrends: {
 } = {
   notDefined: '資料不足',
   decrement: '遞減型',
-  wave: '波型(最大價格1.1 ~ 1.5倍)',
+  wave: '波型(最大價格0.9 ~ 1.4倍)',
   third: '三期型(最大價格約2 ~ 6倍)',
   forth: '四期型(最大價格約1.4 ~ 2倍)',
 };

@@ -38,14 +38,14 @@ class HandleKabuTrends {
     if(K === 0) {
       return ['notDefined'];
     }
-    if(K >= 91) {
-      return ['wave', 'forth'];
+    if(K >= 90) {
+      return ['wave', 'third', 'forth'];
     }
     else if(K >= 85) {
       return ['third', 'forth', 'decrement'];
     } 
     else if(K >= 80) {
-      return ['third', 'forth'];
+      return ['forth'];
     }
     else if(K >= 60) {
       return ['wave', 'forth'];
@@ -82,7 +82,8 @@ class HandleKabuTrends {
   static getPricesRatios(prices: number[]) {
     let res: number[] = [];
     for (let i = 0; i < prices.length; i++) {
-      if(i === 0 || i === 1) {
+      //only sunday
+      if(i === 0) {
         res[i] = 0;
       } else {
         res[i] = this.getTwoNumbersRatio(prices[i - 1], prices[i]);
@@ -97,7 +98,7 @@ class HandleKabuTrends {
     for (let i = 0; i < priceRatios.length; i++) {
       const ratio = priceRatios[i];
       //exclude sunday position
-      if(ratio > 0 && i > 0) {
+      if(ratio > 0) {
         //if ratio is bigger than 0, it is not a decrement type
         position = i;
         break;
@@ -109,6 +110,7 @@ class HandleKabuTrends {
 
   static getReboundAndHighestPricePosition(prices: number[]): {
     haveRebound: boolean,
+    secondPriceIsInputed: boolean,
     highestPricePosition?: {
       firstPeriodPricePosition: number,
       firstPeriodPriceMulti: number,
@@ -126,7 +128,9 @@ class HandleKabuTrends {
     const priceMultiWithOriginPrice = this.getPriceMultiWithOriginPrice(prices);
 
     const priceRatios = this.getPricesRatios(prices);
+    
     const reboundPosition = this.getPositionOfReboundInPriceRatios(priceRatios);
+    const haveRebound = reboundPosition !== -1;
 
     const firstPeriodPricePosition = reboundPosition;
     const firstPeriodPriceMulti = priceMultiWithOriginPrice[firstPeriodPricePosition];
@@ -140,16 +144,20 @@ class HandleKabuTrends {
     const forthPeriodPricePosition = reboundPosition + 3;
     const forthPeriodPriceMulti = priceMultiWithOriginPrice[forthPeriodPricePosition];
 
+    const secondPriceIsInputed = haveRebound && secondPeriodPriceMulti >= 1;
+    console.log(priceRatios, reboundPosition);
 
-    if(reboundPosition === -1) {
+    if(!haveRebound) {
       return ({
-        haveRebound: false,
+        haveRebound,
+        secondPriceIsInputed,
         highestPricePosition: undefined
       });
     }
 
     return ({
-      haveRebound: true,
+      haveRebound,
+      secondPriceIsInputed,
       highestPricePosition: {
         firstPeriodPricePosition,
         firstPeriodPriceMulti,
@@ -181,23 +189,66 @@ class HandleKabuTrends {
     return noReboundBeforeLastCheck;
   }
 
+  static getThirdOrForthKabuTrendType(prices: number[]): KabuTrendsAndHighestPricePosition {
+    const {
+      secondPriceIsInputed,
+      highestPricePosition,
+    } = this.getReboundAndHighestPricePosition(prices);
+
+    if(secondPriceIsInputed && highestPricePosition) {
+      const {
+        secondPeriodPriceMulti,
+        thirdPeriodPricePosition,
+        forthPeriodPricePosition,
+      } = highestPricePosition;
+      
+      if(secondPeriodPriceMulti < reboundTrendSeperatingMulti) {
+        return ({
+          kabuTrendTypes: ['forth'],
+          highestPricePosition: forthPeriodPricePosition
+        });
+      } else {
+        return ({
+          kabuTrendTypes: ['third'],
+          highestPricePosition: thirdPeriodPricePosition
+        });
+      }
+    }
+
+    return ({
+      kabuTrendTypes: ['third', 'forth'],
+      highestPricePosition: undefined,
+    });
+  }
+
+  static getWaveOrThirdOrForthKabuTrendType(prices: number[], kabuValue: number | string): KabuTrendsAndHighestPricePosition {
+    const K = Number(kabuValue);
+    if(K > 100) {
+      return this.getThirdOrForthKabuTrendType(prices);
+    }
+    return ({
+      kabuTrendTypes: ['wave'],
+      highestPricePosition: undefined,
+    });
+  }
+
   static getWaveOrForthKabuTrendType(prices: number[]): KabuTrendsAndHighestPricePosition {
     const pricesBeforeLastCheck = prices.slice(0, lastCheckReboundPosition);
     const priceRatios = this.getPricesRatios(pricesBeforeLastCheck);
 
     const {
-      haveRebound,
+      secondPriceIsInputed,
       highestPricePosition,
     } = this.getReboundAndHighestPricePosition(pricesBeforeLastCheck);
 
-    if(haveRebound && highestPricePosition && highestPricePosition.secondPeriodPriceMulti > 1) {
+    if(secondPriceIsInputed && highestPricePosition) {
       const {
         forthPeriodPriceMulti,
         forthPeriodPricePosition
       } = highestPricePosition;
 
       const isForthPeriod = 
-        forthPeriodPriceMulti > 1.5 && 
+        forthPeriodPriceMulti > 1.4 && 
         forthPeriodPriceMulti <= 2;
       
       if(isForthPeriod) {
@@ -232,32 +283,19 @@ class HandleKabuTrends {
   static getDecrementOrThirdOrForthKabuTrendsAndPricePosition(prices: number[], kabuTrendTypes: KabuTrendType[]): KabuTrendsAndHighestPricePosition {
     const {
       haveRebound,
-      highestPricePosition,
     } = this.getReboundAndHighestPricePosition(prices);
 
-    if(haveRebound && highestPricePosition && highestPricePosition.secondPeriodPriceMulti > 1) {
-      const {
-        secondPeriodPriceMulti,
-        thirdPeriodPricePosition,
-        forthPeriodPricePosition,
-      } = highestPricePosition;
-      
-      if(secondPeriodPriceMulti < reboundTrendSeperatingMulti) {
-        return ({
-          kabuTrendTypes: ['forth'],
-          highestPricePosition: forthPeriodPricePosition
-        });
-      } else {
-        return ({
-          kabuTrendTypes: ['third'],
-          highestPricePosition: thirdPeriodPricePosition
-        });
-      }
+    //check is decrement first
+    const isReboundBeforeLastCheck = this.checkIsNoReboundBeforeLastPosition(prices);
+    if(isReboundBeforeLastCheck) {
+      return ({
+        kabuTrendTypes: ['decrement'],
+        highestPricePosition: noReboundPosition,
+      });
     }
 
     //maybe decrement / third / forth
     const haveDecrementKabuTrendType = kabuTrendTypes.includes('decrement');
-
     if(haveDecrementKabuTrendType && !haveRebound) {
       return ({
         kabuTrendTypes: ['third', 'forth', 'decrement'],
@@ -265,10 +303,8 @@ class HandleKabuTrends {
       });
     }
      
-    return ({
-      kabuTrendTypes: ['third', 'forth'],
-      highestPricePosition: undefined
-    });
+    //check is third / forth
+    return this.getThirdOrForthKabuTrendType(prices);
   }
 
   static getForthKabuTrendsAndPricePosition(prices: number[]): KabuTrendsAndHighestPricePosition {
@@ -300,14 +336,6 @@ class HandleKabuTrends {
     const KabuValue = handleCalKabu(prices[0], prices[1]);
     const typesFromKabuValue = this.getKabuTrendPredictionsFromKabuValue(KabuValue);
 
-    const isReboundBeforeLastCheck = this.checkIsNoReboundBeforeLastPosition(prices);
-    if(isReboundBeforeLastCheck) {
-      return ({
-        kabuTrendTypes: ['decrement'],
-        highestPricePosition: noReboundPosition,
-      });
-    }
-
     //check forth
     const isForth = 
       typesFromKabuValue.includes('forth') && 
@@ -318,11 +346,19 @@ class HandleKabuTrends {
     }
 
     //check is wave / third / forth
+    const isWaveOrThirdOrForth = 
+      typesFromKabuValue.includes('third') && 
+      typesFromKabuValue.includes('forth') && 
+      typesFromKabuValue.includes('wave');
+    if(isWaveOrThirdOrForth) {
+      return this.getWaveOrThirdOrForthKabuTrendType(prices, KabuValue);
+    }
 
-    //check is forth or wave
+    //check is forth / wave
     const isWaveOrForth = 
       typesFromKabuValue.includes('wave') && 
-      typesFromKabuValue.includes('forth');
+      typesFromKabuValue.includes('forth') && 
+      typesFromKabuValue.length === 2;
 
     if(isWaveOrForth) {
       return this.getWaveOrForthKabuTrendType(prices);
@@ -331,7 +367,8 @@ class HandleKabuTrends {
     //check is third or forth
     const isDecrementOrThirdOrForth = 
       typesFromKabuValue.includes('third') && 
-      typesFromKabuValue.includes('forth');
+      typesFromKabuValue.includes('forth') && 
+      typesFromKabuValue.includes('decrement');
 
     if(isDecrementOrThirdOrForth) {
       return this.getDecrementOrThirdOrForthKabuTrendsAndPricePosition(prices, typesFromKabuValue);

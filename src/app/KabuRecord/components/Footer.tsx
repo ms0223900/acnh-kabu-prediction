@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, Link, Divider } from '@material-ui/core';
 import referenceLinks from '../static/referenceLinks.json';
+import texts from '../static/lang/texts.json';
 
 const version = process.env.REACT_APP_VERSION;
 
@@ -36,6 +37,9 @@ const Footer = () => {
     >
       <Typography>
         {'投資有賺有賠，資料僅供預測，如有任何預測失準，一切以遊戲為主'}
+      </Typography>
+      <Typography>
+        {`${texts['zh_TW']['sellingAdvise.askForHelp']}`}
       </Typography>
       <Divider />
       <Typography>
