@@ -1,5 +1,5 @@
 import { OtherDayKabuFormContainerProps } from "../containers/types";
-import { localStorageKey } from "../config";
+import { localStorageKey, storedDateLocalStorageKey } from "../config";
 
 export const initDayPrices = {
   'morning': 0,
@@ -29,6 +29,7 @@ class HandleLocalStorage {
   
   static reset() {
     localStorage.setItem(localStorageKey, '');
+    localStorage.setItem(storedDateLocalStorageKey, '');
   }
 }
 

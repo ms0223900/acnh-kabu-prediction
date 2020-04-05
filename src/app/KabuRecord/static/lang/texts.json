@@ -1,10 +1,15 @@
 {
   "zh_TW": {
-    "sellingAdvise.askForHelp": "如果其他島民有更優(4~6倍)的價格，建議盡早賣出",
+    "footer.remark.1": "投資有賺有賠，資料僅供預測，如有任何預測失準，一切以遊戲為主",
+    "footer.remark.2": "此為預測價格，即便建議最高價時間已過，仍建議每個時段紀錄價格以免向隅更高價",
+    "footer.remark.3": "如果其他島民有更優(4~6倍)的價格，建議盡早賣出",
+
     "sellingAdvise.wave": "大約1.3倍~1.4倍買價就可以賣出了",
     "sellingAdvise.default": "等待價格更明確",
     "sellingAdvise.third": "等到最高價賣出(2~6倍)",
     "sellingAdvise.forth": "等到最高價賣出(1.4~2倍)",
-    "sellingAdvise.overdue": "最高價已過，以賠越少越好為原則賣出"
+    "sellingAdvise.overdue": "最高價已過，以賠越少越好為原則賣出",
+
+    "fromToDates.default": "尚無紀錄"
   }
 }

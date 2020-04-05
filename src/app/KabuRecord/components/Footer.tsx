@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Link, Divider } from '@material-ui/core';
+import { Box, Typography, Link, Divider, List, ListItemText, ListItem } from '@material-ui/core';
 import referenceLinks from '../static/referenceLinks.json';
 import texts from '../static/lang/texts.json';
 
@@ -25,6 +25,11 @@ export const LinkItemInFooter = ({
 };
 
 const links = referenceLinks;
+const footerRemarks = [
+  `${texts['zh_TW']['footer.remark.1']}`,
+  `${texts['zh_TW']['footer.remark.2']}`,
+  `${texts['zh_TW']['footer.remark.3']}`,
+];
 
 const Footer = () => {
   return (
@@ -35,22 +40,23 @@ const Footer = () => {
       paddingLeft={2} 
       paddingY={2}
     >
-      <Typography>
-        {'投資有賺有賠，資料僅供預測，如有任何預測失準，一切以遊戲為主'}
-      </Typography>
-      <Typography>
-        {`${texts['zh_TW']['sellingAdvise.askForHelp']}`}
-      </Typography>
-      <Divider />
-      <Typography>
-        {'參考來源'}
-      </Typography>
-      {links.map((link, i) => (
-        <LinkItemInFooter
-          key={i}
-          {...link} />
+      {footerRemarks.map((r, i) => (
+        <>
+          <Typography key={i}>{r}</Typography>
+          <Divider />
+        </>
       ))}
-      <Divider />
+      <Box paddingY={1}>
+        <Typography>
+          {'參考來源'}
+        </Typography>
+        {links.map((link, i) => (
+          <LinkItemInFooter
+            key={i}
+            {...link} />
+        ))}
+        <Divider />
+      </Box>
       <Typography>{`v${version}`}</Typography>
     </Box>
   );

@@ -14,7 +14,6 @@ const ResetButtonContainer = (props: ResetButtonContainerProps) => {
 
   const handleResetPrices = useCallback(() => {
     if(window.confirm('確定重設本周所有價格嗎?')) {
-      HandleLocalStorage.reset();
       props.resetPricesFn();
     }
   }, [props]);

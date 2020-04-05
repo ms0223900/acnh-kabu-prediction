@@ -39,7 +39,7 @@ class HandleKabuTrends {
       return ['notDefined'];
     }
     if(K >= 90) {
-      return ['wave', 'third', 'forth'];
+      return ['wave', 'forth'];
     }
     else if(K >= 85) {
       return ['third', 'forth', 'decrement'];
