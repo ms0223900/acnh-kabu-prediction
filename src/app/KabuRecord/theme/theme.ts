@@ -10,7 +10,7 @@ const anclTheme = createMuiTheme({
     primary: {
       light: '#cffaee',
       main: '#b0f7e3',
-      dark: '#4be3ba'
+      dark: '#58d1b0'
     },
     text: {
       secondary: '#0f8cd9'

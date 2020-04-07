@@ -15,3 +15,8 @@ export interface OtherDayKabuFormProps {
 export interface KabuTrendTypePredictionProps extends KabuTrendsAndHighestPricePosition {
   prices: number[]
 }
+
+export interface AnnouncementItemProps {
+  index: number,
+  content: string
+}

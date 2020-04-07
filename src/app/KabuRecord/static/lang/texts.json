@@ -10,6 +10,9 @@
     "sellingAdvise.forth": "等到最高價賣出(1.4~2倍)",
     "sellingAdvise.overdue": "最高價已過，以賠越少越好為原則賣出",
 
-    "fromToDates.default": "尚無紀錄"
+    "fromToDates.default": "尚無紀錄",
+
+    "announcement.1": "務必紀錄星期一上午的價格，只要周日與周一上午價格即可得知當周大致價格走向",
+    "announcement.2": "第一週(第一次跟曹賣購買大頭菜的周日到周六)的價格可能會與預測不同(4/6更新)"
   }
 }

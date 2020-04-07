@@ -14,6 +14,7 @@ import DateLocalStorageHandler from '../functions/DateLocalStorageHandler';
 import texts from '../static/lang/texts.json';
 import KabuFormDateHandler from '../functions/KabuFormDateHandler';
 import HandleLocalStorage from '../functions/HandleLocalStorage';
+import Announcements from '../components/Announcements';
 
 export const otherDaysArr: OtherDayType[] = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 
@@ -85,10 +86,15 @@ const OtherDayKabuFormContainer = (props: OtherDayKabuFormContainerProps) => {
       <OtherDayKabuForm
         otherDayList={otherDayList}
         onChange={handleChange} />
-      <KabuTrendTypePrediction
-        prices={prices}
-        {...kabuTrendTypesAndPricePosition} />
-      <Box paddingTop={1} textAlign={'center'}>
+      <Box paddingBottom={1}>
+        <KabuTrendTypePrediction
+          prices={prices}
+          {...kabuTrendTypesAndPricePosition} />
+      </Box>
+      <Box paddingBottom={1}>
+        <Announcements />
+      </Box>
+      <Box paddingBottom={1} textAlign={'center'}>
         <ResetButtonContainer
           resetPricesFn={handleResetPricesAndDate} />
       </Box>
