@@ -44,3 +44,10 @@ export interface InputItemContainerProps extends BaseTextFieldProps {
   variant?: 'standard' | 'filled' | 'outlined'
   onChange?: InputOnChangeFn
 }
+
+export type FormatedTextType = 'normal' | 'highlight'
+
+export interface FormattedText {
+  type: FormatedTextType
+  content: string
+}
