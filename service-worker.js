@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/acnh-kabu-prediction/precache-manifest.bd53506dedf8528ed997f2c6ad915ab2.js"
+  "/acnh-kabu-prediction/precache-manifest.49ea12f3785db9e9a74d2671f9912c21.js"
 );
 
 self.addEventListener('message', (event) => {
