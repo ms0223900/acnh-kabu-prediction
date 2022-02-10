@@ -21,7 +21,7 @@
     "enzyme": "^3.10.0",
     "gh-pages": "^2.2.0",
     "graphql": "^14.5.8",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-function-helpers": "^1.2.8",
